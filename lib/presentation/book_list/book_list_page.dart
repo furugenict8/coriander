@@ -21,6 +21,9 @@ class BookListPage extends StatelessWidget {
             final listTiles = books
                 .map(
                   (book) => ListTile(
+                    //firebase strage 画像　4:40 リストの左に画像を表示させる
+                    leading: Image.network(
+                        'https://amd.c.yimg.jp/im_siggi.n5ZwYfvqRbr5AEVy2TYA---x456-y640-q90-exp3h-pril/amd/20200501-00000198-nataliec-000-1-view.jpg'),
                     //mapは型を変換するメソッド　19:55
                     title: Text(book.title),
                     trailing: IconButton(
@@ -104,26 +107,8 @@ class BookListPage extends StatelessWidget {
     } catch (e) {
       //exceptionが発生した場合のことをかく
       //await _showDialog(context, e.toString());
+      //test20200909
       print(e.toString());
     }
-  }
-
-  Future _showDialog(BuildContext context, String title) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
   }
 }

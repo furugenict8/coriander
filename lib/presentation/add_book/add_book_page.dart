@@ -32,6 +32,19 @@ class AddBookPage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: <Widget>[
+                  SizedBox(
+                    width: 100,
+                    height: 160,
+                    child: InkWell(
+                      onTap: () async {
+                        //TODO : カメラロールを開く
+                        await model.showImagePicker();
+                      },
+                      child: model.imageFile != null
+                          ? Image.file(model.imageFile)
+                          : Container(color: Colors.grey),
+                    ),
+                  ),
                   TextField(
                     controller:
                         textEditingController, //デフォルトのテキスト（元の本の名前）いれる(10:30　動画：Firestoreの更新)

@@ -1,10 +1,22 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:corianderapp/domain/book.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 // 11:29
 class AddBookModel extends ChangeNotifier {
-  String bookTitle = ''; //null回避のため初期値で''「」を入れとく
+  String bookTitle = ''; //null回避のため初期値で「''」を入れとく
+  File imageFile;
+
+  //Firebase strageに画像を追加　12：09
+  Future showImagePicker() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    imageFile = File(pickedFile.path);
+    notifyListeners();
+  }
 
   Future addBookToFirebase() async {
     //ここでバリデーションする　13:27

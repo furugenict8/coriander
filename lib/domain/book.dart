@@ -10,4 +10,5 @@ class Book {
 
   String documentID;
   String title;
+  String imageURL;
 }
