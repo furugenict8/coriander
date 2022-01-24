@@ -23,7 +23,7 @@ class AddBookModel extends ChangeNotifier {
     if (bookTitle.isEmpty) {
       throw ('タイトル入力してください。');
     }
-    Firestore.instance.collection('books').add({
+    FirebaseFirestore.instance.collection('books').add({
       //addの中はcloud_firestore 0.13.6参照　JSONみたいなやつ　Dictionaly型
       'title': bookTitle, //13:08
       'createdAt': Timestamp.now() //25:58 追加された時間 ソートとかできるようになる
@@ -31,9 +31,9 @@ class AddBookModel extends ChangeNotifier {
   }
 
   Future updateBook(Book book) async {
-    final document = Firestore.instance.collection('books').document(book
+    final document = FirebaseFirestore.instance.collection('books').doc(book
         .documentID); //bookのイニシャライザでFirestoreのdocumentIDを取得し、そこから持ってkる(14:28 Fires)
-    await document.updateData(
+    await document.update(
       {'title': bookTitle, 'updateAt': Timestamp.now()},
     );
   }

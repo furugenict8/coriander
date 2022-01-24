@@ -37,7 +37,7 @@ class SignUpPage extends StatelessWidget {
                       model.password = text;
                     },
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text('登録する'),
                     onPressed: () async {
                       try {
@@ -58,14 +58,14 @@ class SignUpPage extends StatelessWidget {
   }
 
   //book_list_pageから以下コピペ。本当はどこかにまとめておいた方がいいらしい。(FirebaseAuth14:10)
-  Future _showDialog(BuildContext context, String title) {
+  void _showDialog(BuildContext context, String title) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(title),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();
