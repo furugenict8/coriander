@@ -13,10 +13,10 @@ dependencies:
   cupertino_icons: ^0.1.2
   provider: ^4.1.3
   #追加したらPub_getをおす
-  firebase_core: ^0.4.5
-  cloud_firestore: ^0.13.6
-  firebase_auth: ^0.16.1
-  image_picker: ^0.6.7+4
+  firebase_core: ^1.11.0
+  cloud_firestore: ^3.1.6
+  firebase_auth: ^3.3.5
+  image_picker: ^0.8.4+4
 
 
 

@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:corianderapp/domain/book.dart';
 import 'package:corianderapp/presentation/add_book/add_book_page.dart';
 import 'package:corianderapp/presentation/book_list/book_list_model.dart';
@@ -9,6 +8,7 @@ class BookListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<BookListModel>(
+      // BookListModelのfetchBooks()を作る。
       create: (_) => BookListModel()..fetchBooks(), //15:42,
       child: Scaffold(
         appBar: AppBar(
@@ -16,14 +16,14 @@ class BookListPage extends StatelessWidget {
         ),
         body: Consumer<BookListModel>(
           builder: (context, model, child) {
-            //notifyListeners()あとにここに値が入る　16:00
+            //createで作られたmodelのnotifyListeners()が飛ぶとここの値が更新される　16:00
             final books = model.books; // book_list_model.dartのbooks 16:16
-            final listTiles = books
+            final listTiles = books //わかりやすくするため変数を変更。
                 .map(
                   (book) => ListTile(
                     //firebase strage 画像　4:40 リストの左に画像を表示させる
                     leading: Image.network(
-                        'https://amd.c.yimg.jp/im_siggi.n5ZwYfvqRbr5AEVy2TYA---x456-y640-q90-exp3h-pril/amd/20200501-00000198-nataliec-000-1-view.jpg'),
+                        'https://64.media.tumblr.com/tumblr_md2bp8iPEb1rjbk13o1_1280.png'),
                     //mapは型を変換するメソッド　19:55
                     title: Text(book.title),
                     trailing: IconButton(

@@ -20,7 +20,7 @@ class SignUpModel extends ChangeNotifier {
 
     // TODO 新規登録、ログインでFirebaseと連携する。
     // firebase_auth 0.16.1 Register a user 　からいったんコピペ
-    final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
+    final User user = (await _auth.createUserWithEmailAndPassword(
       email: mail,
       password: password,
     ))
@@ -29,7 +29,7 @@ class SignUpModel extends ChangeNotifier {
     final email = user.email;
 
     // add_book_modelから持ってきた。　（FirebaseAuth 動画　12:32あたり　）
-    Firestore.instance.collection('users').add({
+    FirebaseFirestore.instance.collection('users').add({
       'email': email,
       'createdAt': Timestamp.now(),
     });

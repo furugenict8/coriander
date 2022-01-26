@@ -9,19 +9,24 @@ class BookListModel extends ChangeNotifier {
   //通信を伴うので時間がかるそのために await もしくは上記サイトの　then〜をつける。javascriptでよくある。
   //Firestore 〜 get()は　https://pub.dev/packages/cloud_firestore Get a stacific document から　コピー
   Future fetchBooks() async {
-    final docs = await Firestore.instance.collection('books').getDocuments();
-    final books = docs.documents
-        .map((doc) => Book(doc))
-        .toList(); // map()　はリストの中を全部変換できる。13:19
-    this.books = books; //リストのbooks に　変数のbooksをいれる❔　14:43
+    // Firestoreからコレクション'books'(QuerySnapshot)を取得してdocsに代入。
+    final docs = await FirebaseFirestore.instance.collection('books').get();
+
+    // getter docs: docs(List<QueryDocumentSnapshot<T>>型)のドキュメント全てをリストにして取り出す。
+    // map(): Listの各要素を引数の中のclosureで変換する。今回は各要素docをBook(doc)に変換
+    // toList():　Listに変換する。Map()はIterableを返すから必要。
+    final books = docs.docs
+        .map((doc) => Book(doc)) // map()　はリストの中を全部変換できる。13:19
+        .toList();
+    this.books = books; //このクラスの変数books(this.books) に　変数のbooksをいれる　14:43
     notifyListeners(); //上記処理の後にお知らせする。　15:10
   }
 
   //削除メソッド　(Firestore delete 6:58)
   Future deleteBook(Book book) async {
-    await Firestore.instance
+    await FirebaseFirestore.instance
         .collection('books')
-        .document(book.documentID)
+        .doc(book.documentID)
         .delete();
   }
 }
