@@ -16,9 +16,9 @@ class BookListPage extends StatelessWidget {
         ),
         body: Consumer<BookListModel>(
           builder: (context, model, child) {
-            //notifyListeners()あとにここに値が入る　16:00
+            //createで作られたmodelのnotifyListeners()が飛ぶとここの値が更新される　16:00
             final books = model.books; // book_list_model.dartのbooks 16:16
-            final listTiles = books
+            final listTiles = books //わかりやすくするため変数を変更。
                 .map(
                   (book) => ListTile(
                     //firebase strage 画像　4:40 リストの左に画像を表示させる

@@ -18,7 +18,7 @@ class BookListModel extends ChangeNotifier {
     final books = docs.docs
         .map((doc) => Book(doc)) // map()　はリストの中を全部変換できる。13:19
         .toList();
-    this.books = books; //リストのbooks に　変数のbooksをいれる　14:43
+    this.books = books; //このクラスの変数books(this.books) に　変数のbooksをいれる　14:43
     notifyListeners(); //上記処理の後にお知らせする。　15:10
   }
 
