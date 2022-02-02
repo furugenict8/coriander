@@ -4,6 +4,7 @@ import 'package:corianderapp/domain/book.dart';
 import 'package:flutter/cupertino.dart';
 
 class BookListModel extends ChangeNotifier {
+  // エンティティモデル(firestoreのドキュメントの要素)であるBookのリストをmodelで持たせる。
   List<Book> books = [];
 
   //通信を伴うので時間がかるそのために await もしくは上記サイトの　then〜をつける。javascriptでよくある。
