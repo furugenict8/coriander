@@ -51,7 +51,7 @@ class BookListPage extends StatelessWidget {
                             title: Text(
                                 '${book.title}を削除しますか？'), //${}は変数を参照できる。（5:43　Firestore delete　）
                             actions: <Widget>[
-                              FlatButton(
+                              TextButton(
                                 child: Text('OK'),
                                 onPressed: () async {
                                   Navigator.of(context).pop();

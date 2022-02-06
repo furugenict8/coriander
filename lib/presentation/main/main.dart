@@ -1,6 +1,6 @@
-import 'package:corianderapp/main_model.dart';
 import 'package:corianderapp/presentation/book_list/book_list_page.dart';
 import 'package:corianderapp/presentation/login/login_page.dart';
+import 'package:corianderapp/presentation/main/main_model.dart';
 import 'package:corianderapp/presentation/signup/signup_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
