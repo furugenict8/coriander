@@ -11,7 +11,8 @@ class AddBookPage extends StatelessWidget {
       book; //AddBookPage()に値を渡すための定義(4:38　Firestoreの更新) あれ、Bookクラスはどこで定義してる？→book.dar　importして解決
   @override
   Widget build(BuildContext context) {
-    final bool isUpdate = book != null; //bookがnullじゃなければtrue(6:27　Firestoreの更新)
+    final bool isUpdate =
+        book != null; //ここちょっとわかってない。bookがnullじゃなければtrue(6:27　Firestoreの更新)
     final textEditingController = TextEditingController();
 
     if (isUpdate) {
@@ -54,7 +55,7 @@ class AddBookPage extends StatelessWidget {
                       model.bookTitle = text;
                     },
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text(isUpdate ? '更新する' : '追加する'),
                     onPressed: () async {
                       //TODO: Updateがあれば更新、なければfirestoreに本を追加 14:40
@@ -87,7 +88,7 @@ class AddBookPage extends StatelessWidget {
           return AlertDialog(
             title: Text('保存しました！'),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -106,7 +107,7 @@ class AddBookPage extends StatelessWidget {
           return AlertDialog(
             title: Text(e.toString()),
             actions: <Widget>[
-              FlatButton(
+              ElevatedButton(
                 child: Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -131,7 +132,7 @@ class AddBookPage extends StatelessWidget {
           return AlertDialog(
             title: Text('更新しました！'),
             actions: <Widget>[
-              FlatButton(
+              ElevatedButton(
                 child: Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -150,7 +151,7 @@ class AddBookPage extends StatelessWidget {
           return AlertDialog(
             title: Text(e.toString()),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
