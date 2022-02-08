@@ -75,6 +75,7 @@ class BookListPage extends StatelessWidget {
         ),
         //23:51 追加されたらbook_list_pageを更新したい
         floatingActionButton:
+            // model.fetchBooks()を使いたいので、ConsumerでFloatingActionButtonを囲んでおく。
             Consumer<BookListModel>(builder: (context, model, child) {
           return FloatingActionButton(
             child: Icon(Icons.add),
@@ -87,6 +88,11 @@ class BookListPage extends StatelessWidget {
                   fullscreenDialog: true,
                 ),
               );
+              // await Navigator.push()処理後、つまりadd_book_pageから戻ってきた時に
+              // model.fetchBooks()を実行
+              // こうすることで、add_book_pageからbook_list_pageに戻ったときに
+              // firestoreから最新のデータ(add_book_pageで追加した本も含む)を読み取り、
+              // 画面が更新される。
               model.fetchBooks();
             },
           );
