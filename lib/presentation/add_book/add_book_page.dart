@@ -52,6 +52,7 @@ class AddBookPage extends StatelessWidget {
                     //昔の動画参照
                     onChanged: (text) {
                       //TextFieldの値が変化したら14:30
+                      // 入力されたtextをmodelのbookTitleに入れておく。
                       model.bookTitle = text;
                     },
                   ),
@@ -98,7 +99,8 @@ class AddBookPage extends StatelessWidget {
           );
         },
       );
-      Navigator.of(context).pop(); //22:49 成功したら元のページに戻る
+      //22:49 await showDialogの処理が成功したら元のページ(book_list_page)に戻る
+      Navigator.of(context).pop();
     } catch (e) {
       //exceptionが発生した場合のことをかく
       showDialog(
