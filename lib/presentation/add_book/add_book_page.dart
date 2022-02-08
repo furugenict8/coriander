@@ -52,6 +52,7 @@ class AddBookPage extends StatelessWidget {
                     //昔の動画参照
                     onChanged: (text) {
                       //TextFieldの値が変化したら14:30
+                      // 入力されたtextをmodelのbookTitleに入れておく。
                       model.bookTitle = text;
                     },
                   ),
