@@ -13,7 +13,7 @@ class AddBookModel extends ChangeNotifier {
   //Firebase strageに画像を追加　12：09
   Future showImagePicker() async {
     final picker = ImagePicker();
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     imageFile = File(pickedFile.path);
     notifyListeners();
   }

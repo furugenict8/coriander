@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                       fontSize: 30,
                     ),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text('本の一覧'),
                     onPressed: () {
                       //RaisedButtonを押した時に
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
                       );
                     },
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text('新規登録'),
                     onPressed: () {
                       Navigator.push(
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
                       );
                     },
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text('ログイン'),
                     onPressed: () {
                       Navigator.push(
