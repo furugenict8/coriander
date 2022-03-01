@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
                       model.password = text;
                     },
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text('ログインする'),
                     onPressed: () async {
                       try {
@@ -65,7 +65,7 @@ class LoginPage extends StatelessWidget {
         return AlertDialog(
           title: Text(title),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();

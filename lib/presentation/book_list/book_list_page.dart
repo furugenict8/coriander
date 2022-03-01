@@ -33,9 +33,10 @@ class BookListPage extends StatelessWidget {
                         await Navigator.push(
                           context,
                           MaterialPageRoute(
+                            //add_book_page に何も渡さなければ、新規追加、オブジェクトが渡されたら更新　4:08　Firestoreの更新
                             builder: (context) => AddBookPage(
                               book: book,
-                            ), //add_book_page に何も渡さなければ、新規追加、オブジェクトが渡されたら更新　4:08　Firestoreの更新
+                            ),
                             fullscreenDialog: true,
                           ),
                         );
